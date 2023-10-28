@@ -7,6 +7,8 @@ import MusicPage from './pages/MusicPage/MusicPage.jsx'
 function App() {
   return (
     <>
+    <Header/>
+    <MusicPage/>
     </>
   );
 }

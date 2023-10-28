@@ -1,0 +1,90 @@
+.header {
+    display: flex;
+    height: 95px;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    align-content: center;
+    justify-content: center;
+}
+
+.headerBlur {
+    background-color: rgba(0, 0, 0, 75%);
+    filter: blur(1px);
+}
+
+.headerBox {
+    display: flex;
+    width: 1290px;
+}
+
+.logo {
+    padding: 16px 16px 16px 32px;
+}
+
+.spanTitle {
+    color: #ffffff;
+    font-family: "Roboto Flex", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.spanDep {
+    color: #90C47B;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+
+.navButton {
+    padding: 4px 16px;
+    margin: 20px 8px;
+    border-radius: 16px;
+    border: 1px solid #90C47B;
+    color: #90C47B;
+    background: #000000;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+}
+
+.searchBox {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    padding-left: 235px;
+}
+
+.searchInput {
+    padding: 4px 40px 4px 16px;
+    margin: 20px 8px;
+    border-radius: 16px;
+    border: 1px solid #90C47B;
+    background: #000000;
+    color: #ffffff;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    flex-grow: 1;
+}
+
+.searchInput::placeholder {
+    color: #90C47B;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 2px;
+}
