@@ -1,8 +1,16 @@
+.bg {
+    background: #000000;
+}
+
 .mainBox {
-    height: 1000px;
+    height: 10000px;
     width: 1290px;
     background: rgba(144, 196, 123, 0.04);
     margin: auto;
     border-right: 1px solid #90C47B;
     border-left: 1px solid #90C47B;
+}
+
+.text {
+    color: #ffffff;
 }
