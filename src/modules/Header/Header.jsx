@@ -3,6 +3,9 @@ import searchIcon from "../../assets/icons/search.svg"
 
 const Header = () => {
     return(
+        <>
+        <div>
+        <div className="headerBlur"/>
         <div className="header">
                 <div className="headerBox">
                     <p className="logo">
@@ -21,6 +24,8 @@ const Header = () => {
                     <button className="navButton">ВОЙТИ</button>
                 </div>
         </div>
+        </div>
+        </>
     );
 };
 
