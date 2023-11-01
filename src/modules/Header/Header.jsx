@@ -4,7 +4,6 @@ import searchIcon from "../../assets/icons/search.svg"
 const Header = () => {
     return(
         <>
-        <div>
         <div className="headerBlur"/>
         <div className="header">
                 <div className="headerBox">
@@ -13,7 +12,7 @@ const Header = () => {
                         <span className="spanDep"> MUSIC WORKSHOP</span>
                     </p>
                     <div>
-                        <button className="navButton">ГЛАВНАЯ</button>
+                        <button className="navButton selected">ГЛАВНАЯ</button>
                         <button className="navButton">СТУДИЯ</button>
                         <button className="navButton">О НАС</button>
                     </div>
@@ -21,9 +20,8 @@ const Header = () => {
                         <input className="searchInput" placeholder="НАЙТИ"/>
                         <img className="searchIcon" alt="searchIcon" src={searchIcon}/>
                     </div>
-                    <button className="navButton">ВОЙТИ</button>
+                    <button className="navButton selected">ВОЙТИ</button>
                 </div>
-        </div>
         </div>
         </>
     );

@@ -25,89 +25,109 @@
         rgba(0, 0, 0, 10%))
 }
 
-.header {
-    display: flex;
-    height: 70px;
-    width: 100%;
-    top: 0;
-    position: fixed;
-    z-index: 1000;
-    align-items: flex-end;
-    justify-content: center;
+@media only screen and (min-width: 1280px) {
+    .header {
+        display: flex;
+        height: 70px;
+        width: 100%;
+        top: 0;
+        position: fixed;
+        z-index: 1000;
+        align-items: flex-end;
+        justify-content: center;
 
-}
+    }
 
 .headerBox {
-    display: flex;
-    width: 1290px;
-}
+        display: flex;
+        width: 1290px;
+    }
 
 .logo {
-    padding: 16px 16px 16px 32px;
-}
+        padding: 16px 16px 16px 32px;
+    }
 
 .spanTitle {
-    color: #ffffff;
-    font-family: "Roboto Flex", sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-}
+        color: #ffffff;
+        font-family: "Roboto Flex", sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        cursor: pointer;
+    }
 
 .spanDep {
-    color: #90C47B;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
+        color: #90C47B;
+        font-family: "Roboto Flex", sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        cursor: pointer;
+    }
 
 .navButton {
-    padding: 4px 16px;
-    margin: 20px 8px;
-    border-radius: 16px;
-    border: 1px solid #90C47B;
-    color: #90C47B;
-    background: transparent;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 100;
-    line-height: normal;
-}
+        padding: 4px 16px;
+        margin: 20px 8px;
+        border-radius: 16px;
+        border: 0;
+        color: #ffffff;
+        background: transparent;
+        font-family: "Roboto Flex", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: normal;
+        transition: background-color 1s ease-in-out, color 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+.navButton.selected {
+        border: 1px solid #90C47B;
+    }
+
+.navButton:hover {
+        background: #90C47B;
+        border-color: transparent;
+        color: #000000;
+    }
 
 .searchBox {
-    position: relative;
-    display: flex;
-    width: fit-content;
-    padding-left: 235px;
-}
+        position: relative;
+        display: flex;
+        width: fit-content;
+        padding-left: 235px;
+    }
 
 .searchInput {
-    padding: 4px 40px 4px 16px;
-    margin: 20px 8px;
-    border-radius: 16px;
-    border: 1px solid #90C47B;
-    background: transparent;
-    color: #ffffff;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 100;
-    line-height: normal;
-    flex-grow: 1;
-}
+        padding: 4px 40px 4px 16px;
+        margin: 20px 8px;
+        border-radius: 16px;
+        border: 1px solid #90C47B;
+        background: transparent;
+        color: #ffffff;
+        font-family: "Roboto Flex", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: normal;
+        flex-grow: 1;
+    }
 
 .searchInput::placeholder {
-    color: #90C47B;
-}
+        color: #90C47B;
+    }
 
 .searchIcon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    padding: 2px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        padding: 2px;
+    }
+}
+
+
+@media only screen and (max-width: 1280px) {
+
 }

@@ -1,0 +1,70 @@
+.songChartItem {
+    background: #90C47B4D;
+    padding: 8px 16px 8px 16px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: ani 2.5s forwards;
+}
+
+    @keyframes ani {
+    0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.songChartItemText700 {
+    color: #FFF;
+    font-family: Roboto Flex, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width:40px;
+    text-align: center;
+}
+
+.songChartItemText400 {
+    color: #FFF;
+    font-family: Roboto Flex, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width:40px;
+    text-align: center;
+}
+
+.songChartItemCoverButton {
+    width: 48px;
+    height: 48px;
+    margin: 0 16px 0 16px;
+    border-radius: 16px;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),url("https://sun9-7.userapi.com/impg/bKfLHjAcLgdVqHtmtIPCGQJdtq-6ftVV2a0uSw/8Xm9PVOUKpc.jpg?size=500x468&quality=96&sign=40950620c2f544662128e050525fcb1e&c_uniq_tag=AjLN2Dxu7J0Np7p3SFy4p6_55wf7flua9IJMex_mwR8&type=album");
+    background-size: cover;
+    border: 0;
+    Box-shadow: inset 48px 48px 48px 48px rgba(0,0,0,75%);
+}
+
+.songInfoBlock{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.songMetaBlock {
+    display: flex;
+    align-items: center;
+}
+
+.songStatsBlock {
+    display: flex;
+    align-items: center;
+}
+
+.songStatsIcons {
+    margin: 0 8px 0 16px;
+}

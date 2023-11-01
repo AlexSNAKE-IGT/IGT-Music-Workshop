@@ -1,0 +1,93 @@
+.bottomBlur {
+    height: 105px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    mask-image: linear-gradient(to top, #000000 50%, rgba(0, 0, 0, 0.00) 100%);
+    mask-mode: alpha;
+    backdrop-filter: blur(15px);
+    background: linear-gradient(to top,
+    rgba(0, 0, 0, 100%),
+        rgba(0, 0, 0, 90%),
+        rgba(0, 0, 0, 80%),
+        rgba(0, 0, 0, 70%),
+        rgba(0, 0, 0, 60%),
+        rgba(0, 0, 0, 50%),
+        rgba(0, 0, 0, 40%),
+        rgba(0, 0, 0, 30%),
+        rgba(0, 0, 0, 20%),
+        rgba(0, 0, 0, 10%))
+}
+
+.playerBlur {
+    height: 64px;
+    width: 1258px;
+    backdrop-filter: blur(2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    bottom: 0;
+    background: #191B19CC;
+    border-radius: 16px;
+}
+
+.audioPlayerContainer {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    position: fixed;
+    padding: 8px 16px;
+    width: 1258px;
+    align-items: center;
+    justify-content: space-around;
+    bottom: 0;
+    background: #191B19CC;
+    border-radius: 16px;
+}
+
+.audioPlayerButton {
+    height: 48px;
+    width: 48px;
+    background: transparent;
+    border: 0;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.audioPlayerText700 {
+    color: #FFF;
+    font-family: Roboto Flex, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.audioPlayerText400 {
+    color: #FFF;
+    font-family: Roboto Flex, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.audioPlayerTextBox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.audioPlayerDuraion {
+    width:100%;
+    accent-color: #90C47B;
+}
+
+.audioPlayerCover {
+    height: 48px;
+    width: 48px;
+    border-radius: 16px;
+    margin: 0 8px 0 16px;
+}
+
