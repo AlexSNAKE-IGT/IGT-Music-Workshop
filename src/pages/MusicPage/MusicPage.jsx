@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import "./MusicPage.css";
 import trackIcon from "../../assets/icons/track.svg";
 import artistIcon from "../../assets/icons/artist.svg";
@@ -6,15 +6,20 @@ import albumIcon from "../../assets/icons/album.svg";
 import playlistIcon from "../../assets/icons/playlist.svg";
 import clipsIcon from "../../assets/icons/clips.svg";
 import favoriteIcon from "../../assets/icons/favorite.svg"
-import sortIcon from "../../assets/icons/sort.svg"
 import SongChartItem from "../../modules/ChartItems/SongChartItem/SongChartItem.jsx";
 import ArtistChartItem from "../../modules/ChartItems/ArtistChartItem/ArtistChartItem.jsx";
 import AlbumChartItem from "../../modules/ChartItems/AlbumChartItem/AlbumChartItem.jsx";
 import PlaylistChartItem from "../../modules/ChartItems/PlaylistChartItem/PlaylistChartItem";
 import ClipChartItem from "../../modules/ChartItems/ClipChartItem/ClipChartItem";
+import CategoryButton from "../../modules/buttons/CategoryButton/CategoryButton.jsx";
+import FilterButton from "../../modules/buttons/FilterButton/FilterButton.jsx";
+import ProfileButton from "../../modules/buttons/ProfileButton/ProfileButton.jsx";
+import SettingsItem from "../../modules/mainpageitems/SettingsItem/SettingsItem.jsx";
+import ProfileItem from "../../modules/mainpageitems/ProfileItem/ProfileItem.jsx";
+import UploadItem from "../../modules/mainpageitems/UploadItem/UploadItem.jsx";
 
 
-const MusicPage = () => {
+const MusicPage = ({menuSwitch, activeProfileButton, onActiveProfileButton}) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [chartData, setChartData] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
@@ -25,6 +30,16 @@ const MusicPage = () => {
   const defaultDateFilter = "default";
   const defaultListenersFilter = "default";
   const defaultLikesFilter = "default";
+
+  const handleActiveProfileButton = (newActiveProfileButton) => {
+    onActiveProfileButton(newActiveProfileButton);
+  };
+
+  const profileButtons = [
+    { id: "profile", name: "Профиль", icon: artistIcon, component: ProfileItem },
+    { id: "upload", name: "Загрузка", icon: trackIcon, component: UploadItem },
+    { id: "settings", name: "Настройки", icon: albumIcon, component: SettingsItem },
+  ]
 
   const categories = [
     { id: "songs", name: "Треки", icon: trackIcon, component: SongChartItem },
@@ -43,6 +58,7 @@ const MusicPage = () => {
   const fetchChartData = useCallback((chartType, filters) => {
     setIsFetching(true);
     setSelectedCategory(chartType);
+
 
     const apiUrl = `http://95.84.198.107:8000/api/${chartType}-chart?date=${filters.date}&listeners=${filters.listeners}&likes=${filters.likes}`;
 
@@ -63,13 +79,13 @@ const MusicPage = () => {
     });
     }, []);
 
-  useEffect(() => {
-    fetchChartData("songs", {
-      date: defaultDateFilter,
-      listeners: defaultListenersFilter,
-      likes: defaultLikesFilter,
-    });
-    }, [fetchChartData]);
+//  useEffect(() => {
+//    fetchChartData("songs", {
+//      date: defaultDateFilter,
+//      listeners: defaultListenersFilter,
+//      likes: defaultLikesFilter,
+//    });
+//    }, [fetchChartData]);
 
   const resetFiltersToDefault = () => {
     setDateFilter(defaultDateFilter);
@@ -111,69 +127,91 @@ const MusicPage = () => {
   }
 
   return (
+    <>
     <div className="bg">
       <div className="mainPage">
         <div className="leftColumn">
-          <span className="leftColumnText">Категории:</span>
-          <div className="categoryBox">
-            {categories.map((category) => (
-              <button
-                style={{margin: "0"}}
-                className={`categoryButton ${selectedCategory === category.id ? "selected" : ""}`}
-                onClick={() => {
-                resetFiltersToDefault();
-                fetchChartData(category.id, {
-                  date: defaultDateFilter,
-                  listeners: defaultListenersFilter,
-                  likes: defaultLikesFilter,
-                });
-              }}
-                disabled={isFetching}
-                >
-                <img className="categoryImg" src={category.icon} alt={`${category.id}Icon`} />{category.name}
-              </button>
-              ))}
-          </div>
-          <span className="leftColumnText">Сортировка:</span>
-          <div className="filterBox">
-            {filters.map((filter) => (
-              <button
-                style={{ margin: "0" }}
-                className={`categoryButton ${filter.value === "default" ? "" : "selected"}`}
-                onClick={() => toggleFilter(filter.id)}
-                >
-                <img className="categoryImg" src={filter.icon} alt={`${filter.id}Icon`} />
-                {filter.name}
-                <img className={`filterImg ${filter.value}`} style={{marginLeft: "auto"}} src={sortIcon} alt="sortIcon" />
-              </button>
-              ))}
-          </div>
-        </div><div className="rightColumn">
-          {isFetching ? (<div className="loader"/>) : (
+          {menuSwitch === "music" ? (
+            <>
+            <span className="leftColumnText">Категории:</span>
+            <div className="categoryBox">
+              {categories.map((category) => (
+                <CategoryButton
+                  key={category.id}
+                  category={category}
+                  selectedCategory={selectedCategory}
+                  onClick={(categoryId) => {
+                  resetFiltersToDefault();
+                  fetchChartData(categoryId, {
+                    date: defaultDateFilter,
+                    listeners: defaultListenersFilter,
+                    likes: defaultLikesFilter,
+                  });
+                }}
+                  isFetching={isFetching}
+                />
+                ))}
+            </div>
+            <span className="leftColumnText">Сортировка:</span>
+            <div className="filterBox">
+              {filters.map((filter) => (
+                <FilterButton
+                  key={filter.id}
+                  filter={filter}
+                  toggleFilter={toggleFilter}
+                />
+                ))}
+            </div>
+            </>
+            ) : (
               <>
-              {chartData.length === 0 ? (
-                <span className="leftColumnText" style={{marginTop: "32px"}}>
-                  Ошибка загрузки. Попробуйте&nbsp;
-                  <span style={{color: '#90C47B', cursor: 'pointer', textDecoration: "underline"}} onClick={() => fetchChartData(selectedCategory)}>
-                    ещё раз
-                  </span>
-                  &nbsp;или повторите попытку позже!
-                </span>
+              <div className="categoryBox">
+                {profileButtons.map((category) => (
+                  <ProfileButton
+                    key={category.id}
+                    category={category}
+                    onClick={() => handleActiveProfileButton(category.id)}
+                  />
+                  ))}
+              </div>
+              </>
+              )}
+        </div>
+        <div className="rightColumn">
+          {isFetching ? (
+              <div className="loader" />
+            ) : (
+              <>
+                {activeProfileButton === "profile" ? (
+                  <ProfileItem />
+                ) : activeProfileButton === "upload" ? (
+                  <UploadItem />
+                ) : activeProfileButton === "settings" ? (
+                  <SettingsItem />
                 ) : (
                   <>
-                  <span className="leftColumnText">
-                    {categories.find(category => category.id === selectedCategory).name}
-                  </span>
-                  <div className={`mainBox animateHeight`}>
-                    {chartData.map((item, index) => {
-                      const animationDelay = `${index * 0.2}s`;
-                      const style = { animationDelay };
-                      return React.createElement(
-                        categories.find(category => category.id === selectedCategory).component,
-                        { key: index, data: item, style }
-                      );
-                    })}
-                  </div>
+                    {chartData.length === 0 ? (
+                      <span className="leftColumnText" style={{ marginTop: "32px" }}>
+                        Ошибка загрузки. Попробуйте&nbsp;
+                        <span style={{ color: "#90C47B", cursor: "pointer", textDecoration: "underline" }} onClick={() => fetchChartData(selectedCategory)}>
+                          ещё раз
+                        </span>
+                        &nbsp;или повторите попытку позже!
+                      </span>
+                    ) : (
+                      <>
+                        <span className="leftColumnText">
+                          {categories.find((category) => category.id === selectedCategory).name}
+                        </span>
+                      <div className={`mainBox animateHeight`}>
+                        {chartData.map((item, index) => {
+                          const animationDelay = `${index * 0.2}s`;
+                          const style = { animationDelay };
+                          return React.createElement(categories.find((category) => category.id === selectedCategory).component, { key: index, data: item, style });
+                        })}
+                      </div>
+                      </>
+                      )}
                   </>
                   )}
               </>
@@ -181,6 +219,7 @@ const MusicPage = () => {
         </div>
       </div>
     </div>
+    </>
     );
 };
 
