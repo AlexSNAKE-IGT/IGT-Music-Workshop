@@ -19,75 +19,156 @@
         rgba(0, 0, 0, 10%))
 }
 
-.playerBlur {
-    height: 64px;
-    width: 1258px;
-    backdrop-filter: blur(2px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: fixed;
-    bottom: 0;
-    background: #191B19CC;
-    border-radius: 16px;
-}
+@media only screen and (min-width: 1280px) {
+
+    .playerBlur {
+        height: 64px;
+        width: 1258px;
+        backdrop-filter: blur(2px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        bottom: 0;
+        background: #191B19CC;
+        border-radius: 16px;
+    }
 
 .audioPlayerContainer {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    position: fixed;
-    padding: 8px 16px;
-    width: 1258px;
-    align-items: center;
-    justify-content: space-around;
-    bottom: 0;
-    background: #191B19CC;
-    border-radius: 16px;
-}
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        position: fixed;
+        padding: 8px 16px;
+        width: 1258px;
+        align-items: center;
+        justify-content: space-around;
+        bottom: 0;
+        background: #191B19CC;
+        border-radius: 16px;
+    }
 
 .audioPlayerButton {
-    height: 48px;
-    width: 48px;
-    background: transparent;
-    border: 0;
-    margin-right: 4px;
-    margin-left: 4px;
-}
+        height: 48px;
+        width: 48px;
+        background: transparent;
+        border: 0;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
 
 .audioPlayerText700 {
-    color: #FFF;
-    font-family: Roboto Flex, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
+        color: #FFF;
+        font-family: Roboto Flex, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
 
 .audioPlayerText400 {
-    color: #FFF;
-    font-family: Roboto Flex, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
+        color: #FFF;
+        font-family: Roboto Flex, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 
 .audioPlayerTextBox {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 4px;
-}
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
 
 .audioPlayerDuraion {
-    width:100%;
-    accent-color: #90C47B;
-}
+        width:100%;
+        accent-color: #90C47B;
+    }
 
 .audioPlayerCover {
-    height: 48px;
-    width: 48px;
-    border-radius: 16px;
-    margin: 0 8px 0 16px;
+        height: 48px;
+        width: 48px;
+        border-radius: 16px;
+        margin: 0 8px 0 16px;
+    }
+
 }
 
+
+@media only screen and (max-width: 1280px) {
+    .playerBlur {
+        height: 64px;
+        width: 100%;
+        margin: 0 16px 0 16px;
+        backdrop-filter: blur(2px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        bottom: 0;
+        background: #191B19CC;
+        border-radius: 16px;
+    }
+
+.audioPlayerContainer {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        position: fixed;
+        padding: 8px 16px;
+        width: 100%;
+        margin: 0 16px 0 16px;
+        align-items: center;
+        justify-content: space-around;
+        bottom: 0;
+        background: #191B19CC;
+        border-radius: 16px;
+    }
+
+.audioPlayerButton {
+        height: 48px;
+        width: 48px;
+        background: transparent;
+        border: 0;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+.audioPlayerText700 {
+        color: #FFF;
+        font-family: Roboto Flex, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+.audioPlayerText400 {
+        color: #FFF;
+        font-family: Roboto Flex, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+.audioPlayerTextBox {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+
+.audioPlayerDuraion {
+        width:100%;
+        accent-color: #90C47B;
+    }
+
+.audioPlayerCover {
+        height: 48px;
+        width: 48px;
+        border-radius: 16px;
+        margin: 0 8px 0 16px;
+    }
+
+}

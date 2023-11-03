@@ -4,7 +4,7 @@
     width: 100%;
     top: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1001;
     align-items: flex-end;
     justify-content: center;
     mask-image: linear-gradient(to bottom,
@@ -32,7 +32,7 @@
         width: 100%;
         top: 0;
         position: fixed;
-        z-index: 1000;
+        z-index: 1002;
         align-items: flex-end;
         justify-content: center;
 
